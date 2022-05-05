@@ -6,7 +6,14 @@ This application is intended to facilitate learning the features of the Aptible 
 
 ![](https://github.com/aptible/deploy-demo-app/blob/master/screenshots/demo.png)
 
-There are two way you can use this application:
+There are three way you can use this application:
+
+#### Deploy to Aptible
+
+No signup required, simply click here to Deploy this App and use it immediately.
+
+![](./deploy-to-aptible.png)
+
 
 #### Guided experience
 

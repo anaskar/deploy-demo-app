@@ -1,0 +1,34 @@
+version: 0.1
+environments:
+  demo-env:
+    apps:
+      demo-app:
+        config:
+          APTIBLE_DOCKER_IMAGE: quay.io/aptible/deploy-demo-app
+          DATABASE_URL: #{demo_env.databases.demo-pg.default_connection_url}
+          REDIS_URL: #{demo_env.databases.demo-redis.default_connection_url}
+        services:
+          web:
+            container_count: 2
+            container_memory_limit: 512
+          background:
+            container_count: 1
+            container_memory_limit: 512
+    databases:
+      demo-pg:
+        type: postgresql
+        version: 14
+        container_size: 512
+        disk_size: 5
+
+      demo-redis:
+        type: redis
+        version: 5.0
+        container_size: 512
+        disk_size: 2
+    endpoints:
+      default:
+        process: #{demo_env.apps.demo-app.web}
+        default_domain: true
+        container_port: 5000
+
